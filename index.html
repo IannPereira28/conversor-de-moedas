@@ -5,51 +5,330 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="icon" type="image/svg+xml" href="./assets/real.png" />
     <title>Conversor de Moedas </title>
 </head>
 
 <body>
-    <img class="logo" src="./img/logo.gif" alt="logo-conversor">
+    <!-- Logo -->
+    <div class="logo">
+        <div class="logo-icon">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Círculo de fundo -->
+                <circle cx="50" cy="50" r="45" fill="url(#gradient1)" stroke="#fff" stroke-width="3" />
+
+                <!-- Símbolo do dólar -->
+                <text x="25" y="40" font-family="Arial, sans-serif" font-size="20" font-weight="bold"
+                    fill="#fff">$</text>
+
+                <!-- Símbolo do real -->
+                <text x="60" y="70" font-family="Arial, sans-serif" font-size="16" font-weight="bold"
+                    fill="#fff">R$</text>
+
+                <!-- Gradiente -->
+                <defs>
+                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#667eea" />
+                        <stop offset="100%" style="stop-color:#764ba2" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="logo-text">
+            <h1>CoinConvert</h1>
+            <p>Conversor de Moedas</p>
+        </div>
+    </div>
 
     <main>
-        <label>
+        <label for="fromCurrency">
             <b>Converter de</b>
-            <select>
-                <option>R$ Real Brasileiro</option>
+            <select id="fromCurrency" required>
+                <option value="USD">🇺🇸 USD - Dólar Americano</option>
+                <option value="EUR">🇪🇺 EUR - Euro</option>
+                <option value="BRL" selected>🇧🇷 BRL - Real Brasileiro</option>
+                <option value="GBP">🇬🇧 GBP - Libra Esterlina</option>
+                <option value="JPY">🇯🇵 JPY - Iene Japonês</option>
+                <option value="CAD">🇨🇦 CAD - Dólar Canadense</option>
+                <option value="AUD">🇦🇺 AUD - Dólar Australiano</option>
+                <option value="CHF">🇨🇭 CHF - Franco Suíço</option>
+                <option value="CNY">🇨🇳 CNY - Yuan Chinês</option>
+                <option value="INR">🇮🇳 INR - Rupia Indiana</option>
+
+                <!-- Américas -->
+                <option value="ARS">🇦🇷 ARS - Peso Argentino</option>
+                <option value="MXN">🇲🇽 MXN - Peso Mexicano</option>
+                <option value="CLP">🇨🇱 CLP - Peso Chileno</option>
+                <option value="COP">🇨🇴 COP - Peso Colombiano</option>
+                <option value="PEN">🇵🇪 PEN - Sol Peruano</option>
+                <option value="UYU">🇺🇾 UYU - Peso Uruguaio</option>
+                <option value="BOB">🇧🇴 BOB - Boliviano</option>
+                <option value="PYG">🇵🇾 PYG - Guarani Paraguaio</option>
+                <option value="VES">🇻🇪 VES - Bolívar Venezuelano</option>
+                <option value="CRC">🇨🇷 CRC - Colón Costa-riquenho</option>
+                <option value="GTQ">🇬🇹 GTQ - Quetzal Guatemalteco</option>
+                <option value="HNL">🇭🇳 HNL - Lempira Hondurenha</option>
+                <option value="NIO">🇳🇮 NIO - Córdoba Nicaraguense</option>
+                <option value="PAB">🇵🇦 PAB - Balboa Panamenha</option>
+                <option value="DOP">🇩🇴 DOP - Peso Dominicano</option>
+                <option value="JMD">🇯🇲 JMD - Dólar Jamaicano</option>
+                <option value="TTD">🇹🇹 TTD - Dólar de Trinidad e Tobago</option>
+
+                <!-- Europa -->
+                <option value="NOK">🇳🇴 NOK - Coroa Norueguesa</option>
+                <option value="SEK">🇸🇪 SEK - Coroa Sueca</option>
+                <option value="DKK">🇩🇰 DKK - Coroa Dinamarquesa</option>
+                <option value="PLN">🇵🇱 PLN - Zloty Polonês</option>
+                <option value="CZK">🇨🇿 CZK - Coroa Tcheca</option>
+                <option value="HUF">🇭🇺 HUF - Forint Húngaro</option>
+                <option value="RON">🇷🇴 RON - Leu Romeno</option>
+                <option value="BGN">🇧🇬 BGN - Lev Búlgaro</option>
+                <option value="HRK">🇭🇷 HRK - Kuna Croata</option>
+                <option value="RSD">🇷🇸 RSD - Dinar Sérvio</option>
+                <option value="RUB">🇷🇺 RUB - Rublo Russo</option>
+                <option value="UAH">🇺🇦 UAH - Hryvnia Ucraniana</option>
+                <option value="TRY">🇹🇷 TRY - Lira Turca</option>
+                <option value="ISK">🇮🇸 ISK - Coroa Islandesa</option>
+                <option value="MKD">🇲🇰 MKD - Dinar Macedônio</option>
+                <option value="ALL">🇦🇱 ALL - Lek Albanês</option>
+                <option value="BAM">🇧🇦 BAM - Marco Bósnio</option>
+
+                <!-- Ásia -->
+                <option value="KRW">🇰🇷 KRW - Won Sul-Coreano</option>
+                <option value="SGD">🇸🇬 SGD - Dólar de Singapura</option>
+                <option value="HKD">🇭🇰 HKD - Dólar de Hong Kong</option>
+                <option value="TWD">🇹🇼 TWD - Dólar de Taiwan</option>
+                <option value="THB">🇹🇭 THB - Baht Tailandês</option>
+                <option value="MYR">🇲🇾 MYR - Ringgit Malaio</option>
+                <option value="PHP">🇵🇭 PHP - Peso Filipino</option>
+                <option value="IDR">🇮🇩 IDR - Rupia Indonésia</option>
+                <option value="VND">🇻🇳 VND - Dong Vietnamita</option>
+                <option value="LAK">🇱🇦 LAK - Kip Laosiano</option>
+                <option value="KHR">🇰🇭 KHR - Riel Cambojano</option>
+                <option value="MMK">🇲🇲 MMK - Kyat de Myanmar</option>
+                <option value="BDT">🇧🇩 BDT - Taka de Bangladesh</option>
+                <option value="LKR">🇱🇰 LKR - Rupia do Sri Lanka</option>
+                <option value="NPR">🇳🇵 NPR - Rupia Nepalesa</option>
+                <option value="PKR">🇵🇰 PKR - Rupia Paquistanesa</option>
+                <option value="AFN">🇦🇫 AFN - Afghani Afegão</option>
+                <option value="UZS">🇺🇿 UZS - Som Uzbeque</option>
+                <option value="KZT">🇰🇿 KZT - Tenge Cazaque</option>
+                <option value="KGS">🇰🇬 KGS - Som Quirguiz</option>
+                <option value="TJS">🇹🇯 TJS - Somoni Tadjique</option>
+                <option value="TMT">🇹🇲 TMT - Manat Turcomeno</option>
+                <option value="MNT">🇲🇳 MNT - Tugrik Mongol</option>
+
+                <!-- Oriente Médio -->
+                <option value="ILS">🇮🇱 ILS - Shekel Israelense</option>
+                <option value="SAR">🇸🇦 SAR - Riyal Saudita</option>
+                <option value="AED">🇦🇪 AED - Dirham dos Emirados</option>
+                <option value="QAR">🇶🇦 QAR - Riyal do Qatar</option>
+                <option value="KWD">🇰🇼 KWD - Dinar do Kuwait</option>
+                <option value="BHD">🇧🇭 BHD - Dinar do Bahrein</option>
+                <option value="OMR">🇴🇲 OMR - Rial de Omã</option>
+                <option value="JOD">🇯🇴 JOD - Dinar Jordaniano</option>
+                <option value="LBP">🇱🇧 LBP - Libra Libanesa</option>
+                <option value="SYP">🇸🇾 SYP - Libra Síria</option>
+                <option value="IQD">🇮🇶 IQD - Dinar Iraquiano</option>
+                <option value="IRR">🇮🇷 IRR - Rial Iraniano</option>
+                <option value="YER">🇾🇪 YER - Rial Iemenita</option>
+
+                <!-- África -->
+                <option value="ZAR">🇿🇦 ZAR - Rand Sul-Africano</option>
+                <option value="EGP">🇪🇬 EGP - Libra Egípcia</option>
+                <option value="NGN">🇳🇬 NGN - Naira Nigeriana</option>
+                <option value="KES">🇰🇪 KES - Xelim Queniano</option>
+                <option value="GHS">🇬🇭 GHS - Cedi Ganês</option>
+                <option value="TZS">🇹🇿 TZS - Xelim Tanzaniano</option>
+                <option value="UGX">🇺🇬 UGX - Xelim Ugandense</option>
+                <option value="ETB">🇪🇹 ETB - Birr Etíope</option>
+                <option value="MAD">🇲🇦 MAD - Dirham Marroquino</option>
+                <option value="TND">🇹🇳 TND - Dinar Tunisiano</option>
+                <option value="DZD">🇩🇿 DZD - Dinar Argelino</option>
+                <option value="LYD">🇱🇾 LYD - Dinar Líbio</option>
+                <option value="AOA">🇦🇴 AOA - Kwanza Angolano</option>
+                <option value="MZN">🇲🇿 MZN - Metical Moçambicano</option>
+                <option value="ZMW">🇿🇲 ZMW - Kwacha Zambiano</option>
+                <option value="BWP">🇧🇼 BWP - Pula de Botswana</option>
+                <option value="NAD">🇳🇦 NAD - Dólar Namibiano</option>
+                <option value="SZL">🇸🇿 SZL - Lilangeni de Eswatini</option>
+                <option value="LSL">🇱🇸 LSL - Loti do Lesoto</option>
+                <option value="MWK">🇲🇼 MWK - Kwacha Malauiano</option>
+                <option value="RWF">🇷🇼 RWF - Franco Ruandês</option>
+                <option value="BIF">🇧🇮 BIF - Franco Burundês</option>
+                <option value="DJF">🇩🇯 DJF - Franco Djiboutiano</option>
+                <option value="ERN">🇪🇷 ERN - Nakfa da Eritreia</option>
+                <option value="SOS">🇸🇴 SOS - Xelim Somali</option>
+                <option value="SDG">🇸🇩 SDG - Libra Sudanesa</option>
+                <option value="SSP">🇸🇸 SSP - Libra Sul-Sudanesa</option>
+                <option value="CDF">🇨🇩 CDF - Franco Congolês</option>
+                <option value="XAF">🇨🇲 XAF - Franco CFA Central</option>
+                <option value="XOF">🇸🇳 XOF - Franco CFA Ocidental</option>
+
+                <!-- Oceania -->
+                <option value="NZD">🇳🇿 NZD - Dólar Neozelandês</option>
+                <option value="FJD">🇫🇯 FJD - Dólar de Fiji</option>
+                <option value="TOP">🇹🇴 TOP - Pa'anga de Tonga</option>
+                <option value="WST">🇼🇸 WST - Tala de Samoa</option>
+                <option value="VUV">🇻🇺 VUV - Vatu de Vanuatu</option>
+                <option value="PGK">🇵🇬 PGK - Kina de Papua Nova Guiné</option>
+                <option value="SBD">🇸🇧 SBD - Dólar das Ilhas Salomão</option>
             </select>
         </label>
 
-        <label>
+        <label for="convertedAmount">
             <b>Converter para</b>
-            <select class="valor-selecionado">
-                <option value="dolar">US$ Dólar</option>
-                <option value="euro">€ Euro</option>
-                <option value="Bitcoin"> Ƀ Bitcoin</option>
-                <option value="Libra">£ Libra</option>
+            <select class="valor-selecionado" id="convertedAmount">
+                <option value="USD" selected>🇺🇸 USD - Dólar Americano</option>
+                <option value="EUR">🇪🇺 EUR - Euro</option>
+                <option value="BRL">🇧🇷 BRL - Real Brasileiro</option>
+                <option value="GBP">🇬🇧 GBP - Libra Esterlina</option>
+                <option value="JPY">🇯🇵 JPY - Iene Japonês</option>
+                <option value="CAD">🇨🇦 CAD - Dólar Canadense</option>
+                <option value="AUD">🇦🇺 AUD - Dólar Australiano</option>
+                <option value="CHF">🇨🇭 CHF - Franco Suíço</option>
+                <option value="CNY">🇨🇳 CNY - Yuan Chinês</option>
+                <option value="INR">🇮🇳 INR - Rupia Indiana</option>
+
+                <!-- Américas -->
+                <option value="ARS">🇦🇷 ARS - Peso Argentino</option>
+                <option value="MXN">🇲🇽 MXN - Peso Mexicano</option>
+                <option value="CLP">🇨🇱 CLP - Peso Chileno</option>
+                <option value="COP">🇨🇴 COP - Peso Colombiano</option>
+                <option value="PEN">🇵🇪 PEN - Sol Peruano</option>
+                <option value="UYU">🇺🇾 UYU - Peso Uruguaio</option>
+                <option value="BOB">🇧🇴 BOB - Boliviano</option>
+                <option value="PYG">🇵🇾 PYG - Guarani Paraguaio</option>
+                <option value="VES">🇻🇪 VES - Bolívar Venezuelano</option>
+                <option value="CRC">🇨🇷 CRC - Colón Costa-riquenho</option>
+                <option value="GTQ">🇬🇹 GTQ - Quetzal Guatemalteco</option>
+                <option value="HNL">🇭🇳 HNL - Lempira Hondurenha</option>
+                <option value="NIO">🇳🇮 NIO - Córdoba Nicaraguense</option>
+                <option value="PAB">🇵🇦 PAB - Balboa Panamenha</option>
+                <option value="DOP">🇩🇴 DOP - Peso Dominicano</option>
+                <option value="JMD">🇯🇲 JMD - Dólar Jamaicano</option>
+                <option value="TTD">🇹🇹 TTD - Dólar de Trinidad e Tobago</option>
+
+                <!-- Europa -->
+                <option value="NOK">🇳🇴 NOK - Coroa Norueguesa</option>
+                <option value="SEK">🇸🇪 SEK - Coroa Sueca</option>
+                <option value="DKK">🇩🇰 DKK - Coroa Dinamarquesa</option>
+                <option value="PLN">🇵🇱 PLN - Zloty Polonês</option>
+                <option value="CZK">🇨🇿 CZK - Coroa Tcheca</option>
+                <option value="HUF">🇭🇺 HUF - Forint Húngaro</option>
+                <option value="RON">🇷🇴 RON - Leu Romeno</option>
+                <option value="BGN">🇧🇬 BGN - Lev Búlgaro</option>
+                <option value="HRK">🇭🇷 HRK - Kuna Croata</option>
+                <option value="RSD">🇷🇸 RSD - Dinar Sérvio</option>
+                <option value="RUB">🇷🇺 RUB - Rublo Russo</option>
+                <option value="UAH">🇺🇦 UAH - Hryvnia Ucraniana</option>
+                <option value="TRY">🇹🇷 TRY - Lira Turca</option>
+                <option value="ISK">🇮🇸 ISK - Coroa Islandesa</option>
+                <option value="MKD">🇲🇰 MKD - Dinar Macedônio</option>
+                <option value="ALL">🇦🇱 ALL - Lek Albanês</option>
+                <option value="BAM">🇧🇦 BAM - Marco Bósnio</option>
+
+                <!-- Ásia -->
+                <option value="KRW">🇰🇷 KRW - Won Sul-Coreano</option>
+                <option value="SGD">🇸🇬 SGD - Dólar de Singapura</option>
+                <option value="HKD">🇭🇰 HKD - Dólar de Hong Kong</option>
+                <option value="TWD">🇹🇼 TWD - Dólar de Taiwan</option>
+                <option value="THB">🇹🇭 THB - Baht Tailandês</option>
+                <option value="MYR">🇲🇾 MYR - Ringgit Malaio</option>
+                <option value="PHP">🇵🇭 PHP - Peso Filipino</option>
+                <option value="IDR">🇮🇩 IDR - Rupia Indonésia</option>
+                <option value="VND">🇻🇳 VND - Dong Vietnamita</option>
+                <option value="LAK">🇱🇦 LAK - Kip Laosiano</option>
+                <option value="KHR">🇰🇭 KHR - Riel Cambojano</option>
+                <option value="MMK">🇲🇲 MMK - Kyat de Myanmar</option>
+                <option value="BDT">🇧🇩 BDT - Taka de Bangladesh</option>
+                <option value="LKR">🇱🇰 LKR - Rupia do Sri Lanka</option>
+                <option value="NPR">🇳🇵 NPR - Rupia Nepalesa</option>
+                <option value="PKR">🇵🇰 PKR - Rupia Paquistanesa</option>
+                <option value="AFN">🇦🇫 AFN - Afghani Afegão</option>
+                <option value="UZS">🇺🇿 UZS - Som Uzbeque</option>
+                <option value="KZT">🇰🇿 KZT - Tenge Cazaque</option>
+                <option value="KGS">🇰🇬 KGS - Som Quirguiz</option>
+                <option value="TJS">🇹🇯 TJS - Somoni Tadjique</option>
+                <option value="TMT">🇹🇲 TMT - Manat Turcomeno</option>
+                <option value="MNT">🇲🇳 MNT - Tugrik Mongol</option>
+
+                <!-- Oriente Médio -->
+                <option value="ILS">🇮🇱 ILS - Shekel Israelense</option>
+                <option value="SAR">🇸🇦 SAR - Riyal Saudita</option>
+                <option value="AED">🇦🇪 AED - Dirham dos Emirados</option>
+                <option value="QAR">🇶🇦 QAR - Riyal do Qatar</option>
+                <option value="KWD">🇰🇼 KWD - Dinar do Kuwait</option>
+                <option value="BHD">🇧🇭 BHD - Dinar do Bahrein</option>
+                <option value="OMR">🇴🇲 OMR - Rial de Omã</option>
+                <option value="JOD">🇯🇴 JOD - Dinar Jordaniano</option>
+                <option value="LBP">🇱🇧 LBP - Libra Libanesa</option>
+                <option value="SYP">🇸🇾 SYP - Libra Síria</option>
+                <option value="IQD">🇮🇶 IQD - Dinar Iraquiano</option>
+                <option value="IRR">🇮🇷 IRR - Rial Iraniano</option>
+                <option value="YER">🇾🇪 YER - Rial Iemenita</option>
+
+                <!-- África -->
+                <option value="ZAR">🇿🇦 ZAR - Rand Sul-Africano</option>
+                <option value="EGP">🇪🇬 EGP - Libra Egípcia</option>
+                <option value="NGN">🇳🇬 NGN - Naira Nigeriana</option>
+                <option value="KES">🇰🇪 KES - Xelim Queniano</option>
+                <option value="GHS">🇬🇭 GHS - Cedi Ganês</option>
+                <option value="TZS">🇹🇿 TZS - Xelim Tanzaniano</option>
+                <option value="UGX">🇺🇬 UGX - Xelim Ugandense</option>
+                <option value="ETB">🇪🇹 ETB - Birr Etíope</option>
+                <option value="MAD">🇲🇦 MAD - Dirham Marroquino</option>
+                <option value="TND">🇹🇳 TND - Dinar Tunisiano</option>
+                <option value="DZD">🇩🇿 DZD - Dinar Argelino</option>
+                <option value="LYD">🇱🇾 LYD - Dinar Líbio</option>
+                <option value="AOA">🇦🇴 AOA - Kwanza Angolano</option>
+                <option value="MZN">🇲🇿 MZN - Metical Moçambicano</option>
+                <option value="ZMW">🇿🇲 ZMW - Kwacha Zambiano</option>
+                <option value="BWP">🇧🇼 BWP - Pula de Botswana</option>
+                <option value="NAD">🇳🇦 NAD - Dólar Namibiano</option>
+                <option value="SZL">🇸🇿 SZL - Lilangeni de Eswatini</option>
+                <option value="LSL">🇱🇸 LSL - Loti do Lesoto</option>
+                <option value="MWK">🇲🇼 MWK - Kwacha Malauiano</option>
+                <option value="RWF">🇷🇼 RWF - Franco Ruandês</option>
+                <option value="BIF">🇧🇮 BIF - Franco Burundês</option>
+                <option value="DJF">🇩🇯 DJF - Franco Djiboutiano</option>
+                <option value="ERN">🇪🇷 ERN - Nakfa da Eritreia</option>
+                <option value="SOS">🇸🇴 SOS - Xelim Somali</option>
+                <option value="SDG">🇸🇩 SDG - Libra Sudanesa</option>
+                <option value="SSP">🇸🇸 SSP - Libra Sul-Sudanesa</option>
+                <option value="CDF">🇨🇩 CDF - Franco Congolês</option>
+                <option value="XAF">🇨🇲 XAF - Franco CFA Central</option>
+                <option value="XOF">🇸🇳 XOF - Franco CFA Ocidental</option>
+
+                <!-- Oceania -->
+                <option value="NZD">🇳🇿 NZD - Dólar Neozelandês</option>
+                <option value="FJD">🇫🇯 FJD - Dólar de Fiji</option>
+                <option value="TOP">🇹🇴 TOP - Pa'anga de Tonga</option>
+                <option value="WST">🇼🇸 WST - Tala de Samoa</option>
+                <option value="VUV">🇻🇺 VUV - Vatu de Vanuatu</option>
+                <option value="PGK">🇵🇬 PGK - Kina de Papua Nova Guiné</option>
+                <option value="SBD">🇸🇧 SBD - Dólar das Ilhas Salomão</option>
             </select>
         </label>
 
-        <label>
+        <label for="amount">
             Valor
-            <input class="input-valor" placeholder="R$ 1.000,00">
+            <input type="number" id="amount" class="input-valor" placeholder="R$ 1.000,00" step="1" min="0" required>
         </label>
 
-        <button class="botao-converter">Converter</button>
+        <button class="botao-converter">Converter Moeda</button>
 
         <section>
             <div class="moeda-box">
-                <img src="./img/real.png" alt="logo-real">
-                <p class="moeda">Real</p>
-                <p class="valor-moeda-converter">R$ 0,00</p>
+                <p class="valor-moeda-converter"> 0,00</p>
             </div>
 
-            <img class="seta" src="./img/seta.png" alt="seta">
+            <img class="seta" src="./assets/seta.png" alt="seta">
 
             <div class="moeda-box">
-                <img class="moeda-img" src="./img/dolar.png" alt="logo-dolar">
-                <p class="moeda" id="nome-moeda">Dólar</p>
-                <p class="valor-moeda">US$ 0,00</p>
+                <p class="valor-moeda"> 0,00</p>
+
+                <p class="tempo"> Taxas atualizadas em tempo real.</p>
             </div>
 
         </section>
